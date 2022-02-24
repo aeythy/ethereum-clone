@@ -1,16 +1,97 @@
 import styled from 'styled-components';
 
+const size = {
+  mobileS: '0',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  desktop: '1380px'
+}
+
+export const device = {
+  mobileS: `(min-width: ${size.mobileS})`,
+  mobileM: `(min-width: ${size.mobileM})`,
+  mobileL: `(min-width: ${size.mobileL})`,
+  tablet: `(min-width: ${size.tablet})`,
+  laptop: `(min-width: ${size.laptop})`,
+  desktop: `(min-width: ${size.desktop})`,
+};
+
+export const Container = styled.div`
+  max-width: 1500px;
+  margin: auto;
+  transition: all.2s;
+
+  @media ${device.mobileS} {
+    max-width: 320px;
+  }
+
+  @media ${device.mobileM} {
+    max-width: 375px;
+  }
+
+  @media ${device.mobileL} {
+    max-width: 768px;
+  }
+
+  @media ${device.tablet} {
+    max-width: 1024px;
+  }
+
+  @media ${device.laptop} { 
+    max-width: 1380px;
+  }
+
+  @media ${device.desktop} {
+    max-width: 1500px;
+  }
+`
+
+export const FontHeroColor = styled.p`
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #b185ff;
+  margin: 0;
+`
+
+export const Link = styled.a`
+  color: #282c34;
+  text-decoration: none;
+  :hover {
+    color: rgb(28, 28, 225);
+  }
+`
+
 export const HeroDetail = styled.div`
   text-align: center;
   text-align: -webkit-center;
-  width: 50%;
+
+  @media ${device.mobileS},
+  @media ${device.mobileM}, 
+  @media ${device.mobileL} {
+    width: 100%;
+
+  @media ${device.laptop},
+  @media ${device.desktop} {
+    width: 50%;
+  }
 `
 
 export const DiscoverMenu = styled.div`
   display: grid;
   grid-gap: 25px 35px;
-  grid-template-columns: auto auto;
   padding: 50px;
+
+  @media ${device.mobileS},
+  @media ${device.mobileM}, 
+  @media ${device.mobileL} {
+    grid-template-columns: 1fr;
+
+  @media ${device.laptop},
+  @media ${device.desktop} {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 export const DiscoverMenuW50 = styled.div`
@@ -46,9 +127,10 @@ export const Button = styled.a`
   text-decoration: none;
   border: solid 1px;
   border-radius: 5px;
+  transition: all.2s;
 
   :hover {
-    color: violed;
+    color: rgb(28, 28, 225);
     border: 1px solid rgb(28, 28, 225);
     box-shadow: rgb(210 210 249) 4px 4px 0px 0px;
   }
@@ -75,10 +157,7 @@ export const img = styled.img`
   width: 100%;
   height: 100%;
 `
-export const Container = styled.div`
-  max-width: 1504px;
-  margin: auto;
-`
+
 export const Paragraph = styled.div`
   padding: 1vh 0;
 `
@@ -111,18 +190,62 @@ export const DflexCenter = styled.div`
 export const Ul = styled.ul`
   display: flex;
   flex-direction:row;
+  padding-left: 25px;
+
+  @media ${device.mobileS},
+  @media ${device.mobileM},
+  @media ${device.mobileL},
+  @media ${device.tablet} {
+    display: none;
+  }
+
+
+  @media ${device.laptop},
+  @media ${device.desktop} {
+    display: flex;
+  }
 `
 
 export const Li = styled.li`
-  width: 7rem;
+  width: 6rem;
   font-size: 15px;
   padding-right: 10px;
   list-style: none;
 `
 
 export const SearchBox = styled.input`
-  font-size: 16px;
-  padding: .8rem;
+  font-size: 15px;
+  padding: .888rem 1.5rem;
   border: solid 1px #6f6f6f;
   border-radius: 6px;
+
+  @media ${device.mobileS},
+  @media ${device.mobileM},
+  @media ${device.mobileL},
+  @media ${device.tablet} {
+    display: none;
+  }
+
+  @media ${device.laptop} ,
+  @media ${device.desktop} {
+    display: block;
+  }
+`
+
+export const MobileMenu = styled.button`
+  border: none;
+  background: none;
+  transform: scale(1.7);
+
+  @media ${device.mobileS},
+  @media ${device.mobileM}, 
+  @media ${device.mobileL},
+  @media ${device.tablet} {
+    display: flex;
+  }
+
+  @media ${device.laptop},
+  @media ${device.desktop} {
+    display: none;
+  }
 `

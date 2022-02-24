@@ -8,19 +8,37 @@ import {
   W50,
   DiscoverMenu,
   DiscoverMenuW50,
-  HeroDetail
+  HeroDetail,
+  FontHeroColor
 } from './styled'
 
 import './App.css';
 import Hero from './hero.webp'
 import Hackatron from './hackathon_transparent.webp'
 
+const greetings = [
+  "hello"
+  , "ciao"
+  , "welcome"
+  , "howdy"
+  , "greetings"
+  , "salut"
+  , "hallo"
+  , "hola"
+  , "Gday"
+  , "Hey"
+];
+const greeting_id = Math.floor(Math.random() * greetings.length);
+
 function App() {
   return (
     <Container>
-      <img src={Hero} alt="hero" style={{ width: "100%", height: "27.75rem", objectFit: "cover" }} />
+      <img src={Hero} alt="hero" style={{ width: "100%", height: "28rem", objectFit: "cover" }} />
       <Wrapper>
         <HeroDetail>
+          <FontHeroColor>
+            {greetings[greeting_id]}
+          </FontHeroColor>
           <FontPrimary>Welcome to Ethereum</FontPrimary>
           <FontSecondary>
             Ethereum is the community-run technology powering the cryptocurrency ether (ETH) and thousands of decentralized applications.
